@@ -1,0 +1,49 @@
+@title The Snap Blog
+@description Thoughts on building for the AI era
+
+layout
+  nav "Snap Blog"
+    link "Home" href=/
+    link "Archive" href=/archive
+    link "About" href=/about
+
+  section "Latest Posts"
+    card "Why LLMs Need a New Web Framework"
+      badge "Featured"
+      text "Traditional web frameworks were designed for humans typing code. But what happens when AI generates 90% of the code? We need frameworks optimized for token efficiency." muted
+      text "Current frameworks like Next.js require hundreds of tokens just for boilerplate — imports, config, JSX syntax. Snap reduces a typical page from 500+ tokens to under 100."
+      divider
+      row
+        text "Jan 15, 2026" small muted
+        text "5 min read" small muted
+
+    spacer
+
+    grid cols=2
+      card "Convention Over Configuration"
+        text "Why zero-config is the future of web development. Stop configuring, start building." muted
+        row
+          text "Jan 12, 2026" small muted
+
+      card "The Token Economy"
+        text "When AI generates your UI, every token costs money. Here's how to optimize for the LLM era." muted
+        row
+          text "Jan 10, 2026" small muted
+
+      card "Beautiful Defaults Matter"
+        text "Why we spent weeks on default styling so you never have to write CSS again." muted
+        row
+          text "Jan 8, 2026" small muted
+
+      card "Snap vs Next.js: A Comparison"
+        text "Side-by-side comparison of building the same page in both frameworks." muted
+        row
+          text "Jan 5, 2026" small muted
+
+  section "Subscribe"
+    text "Get notified when we publish new posts."
+    form
+      input "Email" type=email placeholder="you@example.com"
+      button "Subscribe"
+
+  footer "© 2026 Snap Blog"

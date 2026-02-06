@@ -1,0 +1,34 @@
+@title Analytics Dashboard
+@description Real-time analytics overview
+
+layout
+  nav "Dashboard" bg-white
+    link "Overview" href=/
+    link "Analytics" href=/analytics
+    link "Settings" href=/settings
+
+  section "Overview"
+    grid cols=4
+      card
+        stat "Revenue" value="$48,290" trend="+12.5%"
+      card
+        stat "Users" value="2,847" trend="+8.2%"
+      card
+        stat "Orders" value="1,024" trend="-2.4%"
+      card
+        stat "Conversion" value="3.6%" trend="+0.8%"
+
+    spacer
+
+    grid cols=2
+      card "Revenue Trend"
+        chart "Monthly Revenue" type=line labels="Jan,Feb,Mar,Apr,May,Jun" values="12000,19000,15000,22000,28000,48290"
+      card "Sales by Category"
+        chart "Categories" type=pie labels="Electronics,Clothing,Food,Books" values="45,28,18,9"
+
+    spacer
+
+    card "Recent Orders"
+      table headers="Order,Customer,Amount,Status"
+
+  footer "© 2026 Dashboard Inc."

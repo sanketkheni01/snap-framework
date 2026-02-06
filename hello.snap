@@ -1,0 +1,22 @@
+@title Hello World
+
+layout
+  hero "Hello, World! 🌍" bg-gradient
+    text "This is a website built with Snap — the LLM-friendly web framework."
+    text "Zero config. Zero CSS. Zero pain." muted
+    button "Learn More" href=#about
+
+  section "About" id=about
+    heading "Why Snap?"
+    grid cols=3
+      card "⚡ Fast"
+        text "Build a full page in ~30 tokens. That's 10x fewer than Next.js."
+      card "🧠 LLM-Native"
+        text "Designed for AI to read and write. No imports, no JSX, no config files."
+      card "🎨 Beautiful Defaults"
+        text "Looks professional out of the box. No CSS knowledge needed."
+
+  section "Get Started"
+    text "Install Snap and create your first page:"
+    code "npm install -g snap-framework\nsnap init my-site\nsnap dev"
+    text "That's it. You're live." muted

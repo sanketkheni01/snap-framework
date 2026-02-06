@@ -1,0 +1,40 @@
+@title Snap 🫰 — LLM-Native Web Framework
+@description Build beautiful websites by describing them. No CSS, no config, no boilerplate.
+
+layout
+  nav "Snap 🫰"
+    link "Examples" href=#examples
+    link "Syntax" href=#syntax
+    link "GitHub" href=https://github.com/example/snap
+
+  hero "The web framework built for AI ⚡" bg-gradient
+    text "Describe your website in a simple DSL. Get a beautiful, responsive site. Zero CSS, zero config."
+    row center
+      button "Get Started" href=#syntax
+      button "Examples" href=#examples secondary
+
+  section "Why Snap?"
+    grid cols=3
+      card "🎯 100 Tokens"
+        text "Generate a full page in ~100 tokens. That's 5x fewer than Next.js."
+      card "🎨 Zero CSS"
+        text "Professional design out of the box. Style with keywords, not properties."
+      card "⚡ Instant"
+        text "No build step needed. Dev server with hot reload. Just write and see."
+
+  section "Examples"
+    grid cols=3
+      card "Dashboard"
+        text "Analytics dashboard with charts, stats, and tables."
+        button "View" href=/examples/dashboard small
+      card "Landing Page"
+        text "SaaS landing page with hero, features, and pricing."
+        button "View" href=/examples/landing small
+      card "Blog"
+        text "Content-focused blog with cards and forms."
+        button "View" href=/examples/blog small
+
+  section "Quick Syntax"
+    code "layout\n  nav \"My App\"\n    link \"Home\" href=/\n  hero \"Welcome\" bg-gradient\n    text \"Hello world\"\n    button \"Click Me\"\n  grid cols=3\n    card \"Feature 1\"\n      text \"Description here\"\n  footer \"Made with Snap\""
+
+  footer "Built with Snap ⚡ — The LLM-native web framework"
