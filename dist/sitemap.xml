@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/examples/app-store</loc></url>
   <url><loc>/examples/blog</loc></url>
+  <url><loc>/examples/changelog</loc></url>
+  <url><loc>/examples/contact</loc></url>
   <url><loc>/examples/dashboard</loc></url>
+  <url><loc>/examples/docs</loc></url>
+  <url><loc>/examples/ecommerce</loc></url>
+  <url><loc>/examples/event</loc></url>
+  <url><loc>/examples/faq</loc></url>
   <url><loc>/examples/landing</loc></url>
+  <url><loc>/examples/portfolio</loc></url>
+  <url><loc>/examples/pricing</loc></url>
+  <url><loc>/examples/restaurant</loc></url>
+  <url><loc>/examples/resume</loc></url>
+  <url><loc>/examples/saas-landing</loc></url>
+  <url><loc>/examples/startup</loc></url>
   <url><loc>/hello</loc></url>
   <url><loc>/</loc></url>
 </urlset>

@@ -2,24 +2,24 @@
 @description Real-time analytics overview
 
 layout
-  nav "Dashboard" bg-white
+  nav "Analytics"
     link "Overview" href=/
-    link "Analytics" href=/analytics
+    link "Reports" href=/reports
+    link "Customers" href=/customers
     link "Settings" href=/settings
 
   section "Overview"
     grid cols=4
-      card
+      card fade-in
         stat "Revenue" value="$48,290" trend="+12.5%"
-      card
-        stat "Users" value="2,847" trend="+8.2%"
-      card
+      card fade-in
+        stat "Active Users" value="2,847" trend="+8.2%"
+      card fade-in
         stat "Orders" value="1,024" trend="-2.4%"
-      card
+      card fade-in
         stat "Conversion" value="3.6%" trend="+0.8%"
 
-    spacer
-
+  section "Trends"
     grid cols=2
       card "Revenue Trend"
         chart "Monthly Revenue" type=line labels="Jan,Feb,Mar,Apr,May,Jun" values="12000,19000,15000,22000,28000,48290"
@@ -28,7 +28,28 @@ layout
 
     spacer
 
+    grid cols=2
+      card "Weekly Orders"
+        chart type=bar labels="Mon,Tue,Wed,Thu,Fri,Sat,Sun" values="45,62,78,51,90,120,85"
+      card "Traffic Sources"
+        chart type=pie labels="Organic,Paid,Social,Direct" values="40,25,20,15"
+
+  section "Recent Activity"
     card "Recent Orders"
-      table headers="Order,Customer,Amount,Status"
+      table headers="Order ID,Customer,Amount,Status,Date"
+
+    spacer
+
+    grid cols=2
+      card "Top Products"
+        list
+          item "Wireless Headphones — $79.99 (342 sold)"
+          item "Smart Watch Pro — $199.99 (218 sold)"
+          item "USB-C Hub — $34.99 (189 sold)"
+          item "Laptop Stand — $49.99 (156 sold)"
+      card "Alerts"
+        alert "Revenue target achieved for Q1!" type=success
+        alert "Inventory low on 3 products" type=warning
+        alert "New feature deployment scheduled for Friday" type=info
 
   footer "© 2026 Dashboard Inc."

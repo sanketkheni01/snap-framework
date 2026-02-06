@@ -1,0 +1,45 @@
+@title Pricing — FlowApp
+@description Simple, transparent pricing for every team size
+
+layout
+  nav "FlowApp"
+    link "Features" href=/features
+    link "Pricing" href=/pricing
+    link "Docs" href=/docs
+    button "Get Started" href=/signup
+
+  hero "Simple pricing, no surprises" bg-gradient
+    text "Start free, scale as you grow. No credit card required."
+
+  section "Choose Your Plan"
+    grid cols=3
+      pricing "Hobby" price="$0" period="/forever" features="3 projects,1 GB storage,Community support,Basic analytics"
+        button "Start Free"
+
+      pricing "Pro" price="$19" period="/mo" features="Unlimited projects,50 GB storage,Priority support,Advanced analytics,Custom domains,API access"
+        badge "Most Popular"
+        button "Start Trial"
+
+      pricing "Enterprise" price="$79" period="/mo" features="Everything in Pro,Unlimited storage,Dedicated account manager,SSO & SAML,Custom SLA,Audit logs"
+        button "Contact Sales" secondary
+
+  section "Compare Plans"
+    table headers="Feature,Hobby,Pro,Enterprise"
+
+  section "Frequently Asked Questions"
+    accordion "Can I switch plans anytime?"
+      text "Yes! Upgrade or downgrade at any time. Changes take effect on your next billing cycle."
+    accordion "Is there a free trial for Pro?"
+      text "Absolutely. Try Pro free for 14 days, no credit card required."
+    accordion "What payment methods do you accept?"
+      text "We accept all major credit cards, PayPal, and wire transfers for Enterprise plans."
+    accordion "Do you offer discounts for nonprofits?"
+      text "Yes! Contact us for special nonprofit pricing at hello@flowapp.com."
+
+  section "Trusted by 10,000+ Teams"
+    grid cols=3
+      testimonial "FlowApp saved us 20 hours per week in project management overhead." author="Lisa Wang" role="PM, DesignCo"
+      testimonial "The Pro plan is an absolute steal for what you get." author="Marcus Johnson" role="CTO, DevShop"
+      testimonial "Switched from Asana and never looked back." author="Yuki Tanaka" role="Founder, StartupABC"
+
+  footer "© 2026 FlowApp. All rights reserved."

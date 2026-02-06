@@ -1,0 +1,66 @@
+@title Resume — Sam Taylor
+
+layout
+  nav "Sam Taylor"
+    link "Experience" href=#experience
+    link "Skills" href=#skills
+    link "Education" href=#education
+    link "Contact" href=#contact
+
+  hero "Sam Taylor" bg-gradient
+    text "Senior Software Engineer · San Francisco, CA"
+    text "7+ years building scalable systems at top tech companies." muted
+    row center
+      button "Download PDF" href=/resume.pdf
+      button "Email" href=mailto:sam@example.com secondary
+
+  section "Experience"
+    timeline
+      card "Senior Software Engineer — Google"
+        text "2023 — Present" small muted
+        text "Tech lead for Cloud Functions team. Designed autoscaling system handling 2M req/sec. Mentored 5 junior engineers." muted
+      card "Software Engineer — Stripe"
+        text "2020 — 2023" small muted
+        text "Built fraud detection pipeline processing $50B in transactions. Reduced false positives by 35%. Led migration to Kubernetes." muted
+      card "Software Engineer — Airbnb"
+        text "2018 — 2020" small muted
+        text "Full-stack development on search and discovery. Improved search relevance by 22%. Built A/B testing framework." muted
+
+  section "Technical Skills"
+    grid cols=2
+      card "Languages"
+        progress "Go" value=95
+        progress "Python" value=90
+        progress "TypeScript" value=88
+        progress "Rust" value=70
+      card "Infrastructure"
+        progress "Kubernetes" value=92
+        progress "AWS" value=90
+        progress "Terraform" value=85
+        progress "PostgreSQL" value=88
+
+  section "Education"
+    grid cols=2
+      card "M.S. Computer Science"
+        text "Stanford University · 2018" muted
+        text "Focus: Distributed Systems. GPA: 3.9/4.0" muted
+      card "B.S. Computer Science"
+        text "UC Berkeley · 2016" muted
+        text "Minor: Mathematics. Dean's List." muted
+
+  section "Contact"
+    grid cols=4
+      card center
+        text "📧" huge
+        link "sam@example.com" href=mailto:sam@example.com
+      card center
+        text "💼" huge
+        link "LinkedIn" href=https://linkedin.com
+      card center
+        text "🐙" huge
+        link "GitHub" href=https://github.com
+      card center
+        text "🌐" huge
+        link "samtaylor.dev" href=https://samtaylor.dev
+
+  footer "References available upon request."

@@ -1,0 +1,46 @@
+@title FAQ — Snap Framework
+@description Frequently asked questions about Snap
+
+layout
+  nav "Snap FAQ"
+    link "Docs" href=/docs
+    link "Examples" href=/examples
+    link "GitHub" href=https://github.com/snap
+    button "Get Started" href=/docs/start
+
+  hero "Frequently Asked Questions" bg-gradient
+    text "Everything you need to know about building with Snap."
+
+  section "General"
+    accordion "What is Snap?"
+      text "Snap is a declarative web framework where you describe pages using a simple DSL. Each .snap file compiles to a standalone, responsive HTML page with professional styling — no CSS required."
+    accordion "Who is Snap for?"
+      text "Snap is designed for LLMs generating web UIs, developers who want to prototype fast, and anyone who wants beautiful pages without writing CSS. It's especially useful when token efficiency matters."
+    accordion "Is Snap free?"
+      text "Yes! Snap is open source under the MIT license. Free to use for personal and commercial projects."
+    accordion "How is Snap different from React or Next.js?"
+      text "Traditional frameworks require hundreds of tokens for imports, config, and JSX. Snap produces the same visual result in 10-20% of the tokens. It's designed for AI generation, not manual coding."
+
+  section "Technical"
+    accordion "How does indentation work?"
+      text "Use 2 spaces to nest children under parents. Components at the same indent level are siblings."
+      code "grid cols=2\n  card \"Left\"\n    text \"Content\"\n  card \"Right\"\n    text \"Content\""
+    accordion "Can I use custom CSS?"
+      text "Snap's style keywords cover most needs. For custom colors, use meta directives like @color-primary #ff6600 to override CSS variables."
+    accordion "Is it responsive?"
+      text "Yes! All components are responsive by default. Grids auto-collapse to single column on mobile. Nav, hero, and footer all adapt to screen size."
+    accordion "Can I use JavaScript?"
+      text "Interactive components (tabs, accordion, modal, etc.) include built-in JavaScript. For custom logic, the compiled HTML is standard — you can extend it."
+    accordion "How do I deploy?"
+      text "Run snap build to generate static HTML files. Deploy anywhere: Netlify, Vercel, GitHub Pages, S3, or any static host."
+    accordion "Does Snap support multiple pages?"
+      text "Yes. Each .snap file becomes one HTML page. Use snap build to compile all pages in your project."
+
+  section "Still Have Questions?"
+    text "Join our community or check the docs." center muted
+    row center
+      button "Read Docs" href=/docs
+      button "Join Discord" href=/discord secondary
+      button "GitHub Issues" href=/github/issues secondary
+
+  footer "© 2026 Snap Framework"

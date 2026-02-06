@@ -1,0 +1,77 @@
+@title ShopWave — Discover Great Products
+@description Your favorite online marketplace
+
+layout
+  nav "ShopWave"
+    link "New Arrivals" href=/new
+    link "Categories" href=/categories
+    link "Deals" href=/deals
+    link "Cart (3)" href=/cart
+    button "Sign In" href=/login
+
+  hero "Summer Sale — Up to 50% Off" bg-gradient
+    text "Shop the best deals on electronics, fashion, and home goods."
+    button "Shop Now" href=#products
+
+  section "Featured Products"
+    grid cols=4
+      card "Wireless Headphones" hover-lift
+        image src="/products/headphones.jpg" alt="Wireless Headphones"
+        row
+          text "$79.99" bold large
+          badge "Sale"
+        text "Premium noise-cancelling with 40hr battery" muted small
+        button "Add to Cart" full
+
+      card "Smart Watch Pro" hover-lift
+        image src="/products/watch.jpg" alt="Smart Watch"
+        text "$199.99" bold large
+        text "Track fitness, calls, and notifications" muted small
+        button "Add to Cart" full
+
+      card "Laptop Stand" hover-lift
+        image src="/products/stand.jpg" alt="Laptop Stand"
+        row
+          text "$49.99" bold large
+          badge "Bestseller"
+        text "Ergonomic aluminum design" muted small
+        button "Add to Cart" full
+
+      card "USB-C Hub 7-in-1" hover-lift
+        image src="/products/hub.jpg" alt="USB-C Hub"
+        text "$34.99" bold large
+        text "HDMI, USB-A, SD, and more" muted small
+        button "Add to Cart" full
+
+  section "Shop by Category"
+    grid cols=3
+      card "💻 Electronics" hover-lift
+        text "Laptops, phones, accessories and more." muted
+        link "Browse" href=/categories/electronics
+      card "👕 Fashion" hover-lift
+        text "Trending styles for every season." muted
+        link "Browse" href=/categories/fashion
+      card "🏠 Home & Living" hover-lift
+        text "Furniture, decor, and kitchen essentials." muted
+        link "Browse" href=/categories/home
+
+  section "Why Shop With Us"
+    grid cols=4
+      card center
+        heading "🚚" level=2
+        text "Free Shipping" bold
+        text "On orders over $50" muted small
+      card center
+        heading "↩️" level=2
+        text "Easy Returns" bold
+        text "30-day return policy" muted small
+      card center
+        heading "🔒" level=2
+        text "Secure Payment" bold
+        text "256-bit encryption" muted small
+      card center
+        heading "💬" level=2
+        text "24/7 Support" bold
+        text "Chat, email, phone" muted small
+
+  footer "© 2026 ShopWave. All rights reserved."

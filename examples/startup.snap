@@ -1,0 +1,56 @@
+@title NeuralPay — Payments Powered by AI
+
+layout
+  nav "NeuralPay"
+    link "How It Works" href=#how
+    link "Features" href=#features
+    link "Investors" href=#traction
+    button "Request Demo" href=/demo
+
+  hero "Payments infrastructure that thinks" bg-gradient
+    text "NeuralPay uses machine learning to reduce fraud by 94% while approving 12% more legitimate transactions. Accept payments globally with zero configuration."
+    row center
+      button "Request Demo" href=/demo
+      button "Read Docs" href=/docs secondary
+
+  section "The Problem"
+    grid cols=3
+      card "💸 $32B Lost to Fraud"
+        text "Online merchants lose billions annually to payment fraud." muted
+      card "🚫 18% False Declines"
+        text "Legitimate customers blocked by outdated rules engines." muted
+      card "⏳ Months to Integrate"
+        text "Traditional payment APIs take 3-6 months to go live." muted
+
+  section "How NeuralPay Works"
+    timeline
+      card "1. Drop in our SDK"
+        text "One line of code. Works with any stack. Go live in under an hour." muted
+      card "2. AI learns your patterns"
+        text "Our models analyze your transaction data to build custom fraud profiles." muted
+      card "3. Smart decisions in 50ms"
+        text "Every transaction scored in real-time. Fraud blocked. Good customers approved." muted
+      card "4. Continuous improvement"
+        text "Models retrain daily on new data. Accuracy improves automatically over time." muted
+
+  section "Traction"
+    grid cols=4
+      stat "$1.2B" label="Processed Monthly"
+      stat "94%" label="Fraud Reduction"
+      stat "50ms" label="Decision Speed"
+      stat "200+" label="Enterprise Clients"
+
+  section "Backed by the Best"
+    text "Series B — $45M raised from top-tier investors." center muted
+    grid cols=3
+      testimonial "NeuralPay is the most impressive payments startup we've funded." author="Sarah Lin" role="Partner, Sequoia Capital"
+      testimonial "Their AI accuracy is unprecedented in the fintech space." author="David Park" role="GP, a16z"
+      testimonial "Game-changing technology for online commerce." author="Emma Torres" role="Managing Director, Stripe Ventures"
+
+  section "Ready to Upgrade Your Payments?"
+    text "Join 200+ companies processing smarter payments with NeuralPay." center muted
+    row center
+      button "Request Demo" href=/demo
+      button "Talk to Sales" href=/sales secondary
+
+  footer "© 2026 NeuralPay Inc."

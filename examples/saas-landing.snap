@@ -1,0 +1,50 @@
+@title CloudSync — Sync Everything
+@description Real-time data synchronization for modern teams
+
+layout
+  nav "CloudSync"
+    link "Features" href=#features
+    link "Pricing" href=#pricing
+    link "Docs" href=/docs
+    button "Start Free" href=/signup
+
+  hero "Your data, everywhere, instantly" bg-gradient
+    text "CloudSync keeps your team's data perfectly synchronized across every device and platform. No conflicts, no delays."
+    row center
+      button "Start Free Trial" href=/signup
+      button "Watch Demo" href=/demo secondary
+
+  section "Why Teams Love CloudSync"
+    grid cols=3
+      card "⚡ Real-Time Sync"
+        text "Sub-millisecond synchronization across all your devices and services." muted
+      card "🔒 End-to-End Encrypted"
+        text "Your data is encrypted at rest and in transit. Zero-knowledge architecture." muted
+      card "🌍 Global CDN"
+        text "200+ edge locations ensure blazing fast access from anywhere in the world." muted
+      card "🔌 100+ Integrations"
+        text "Connect with Slack, Notion, GitHub, Jira, and your favorite tools." muted
+      card "📊 Conflict Resolution"
+        text "Smart merge algorithms handle conflicts automatically. No more lost work." muted
+      card "🛡️ 99.99% Uptime"
+        text "Enterprise-grade reliability with automatic failover and disaster recovery." muted
+
+  section "Trusted by 5,000+ Companies"
+    text "From startups to Fortune 500, teams rely on CloudSync every day." center muted
+
+  section "Simple, Transparent Pricing"
+    grid cols=3
+      pricing "Starter" price="Free" features="5 users,1GB storage,Community support,Basic integrations"
+        button "Get Started"
+      pricing "Team" price="$12" period="/user/mo" features="Unlimited users,100GB storage,Priority support,All integrations,Audit logs"
+        button "Start Trial"
+      pricing "Enterprise" price="Custom" features="Everything in Team,Unlimited storage,Dedicated support,SLA guarantee,SSO & SAML"
+        button "Contact Sales" secondary
+
+  section "What Our Users Say"
+    grid cols=3
+      testimonial "CloudSync eliminated our data silos overnight. Game changer." author="Maria Chen" role="CTO, TechCorp"
+      testimonial "The conflict resolution alone saved us hundreds of engineering hours." author="James Park" role="Lead Dev, StartupXYZ"
+      testimonial "Best developer experience of any sync platform we've tried." author="Priya Sharma" role="VP Eng, ScaleUp"
+
+  footer "© 2026 CloudSync Inc. All rights reserved."

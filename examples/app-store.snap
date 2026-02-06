@@ -1,0 +1,49 @@
+@title Focusly — Your Productivity Companion
+
+layout
+  nav "Focusly"
+    link "Features" href=#features
+    link "Reviews" href=#reviews
+    link "Download" href=#download
+
+  hero "Stay focused. Get more done." bg-gradient
+    text "Focusly combines Pomodoro timers, task management, and habit tracking in one beautiful app. Available on iOS and Android."
+    row center
+      button "Download for iOS" href=https://apps.apple.com
+      button "Download for Android" href=https://play.google.com secondary
+
+  section "Features"
+    grid cols=3
+      card "⏱️ Smart Timer" hover-lift
+        text "Pomodoro, custom timers, and deep work sessions that adapt to your rhythm." muted
+      card "✅ Task Management" hover-lift
+        text "Organize tasks by project, priority, and deadline with drag-and-drop simplicity." muted
+      card "📈 Habit Tracking" hover-lift
+        text "Build streaks, track progress, and visualize your productivity over time." muted
+      card "🔔 Smart Reminders" hover-lift
+        text "Context-aware notifications that know when and how to nudge you." muted
+      card "📊 Weekly Reports" hover-lift
+        text "Beautiful charts showing your focus time, completed tasks, and streaks." muted
+      card "🌙 Focus Mode" hover-lift
+        text "Block distracting apps and websites during work sessions." muted
+
+  section "What Users Say"
+    grid cols=3
+      testimonial "Finally an app that actually helps me focus instead of adding noise." author="Emma L." role="Designer"
+      testimonial "My productivity has doubled since I started using Focusly." author="Raj P." role="Developer"
+      testimonial "The habit tracking feature alone is worth the download." author="Mia K." role="Student"
+
+  section "By the Numbers"
+    grid cols=4
+      stat "500K+" label="Downloads"
+      stat "4.8★" label="App Store Rating"
+      stat "12M+" label="Focus Sessions"
+      stat "89%" label="Daily Active Users"
+
+  section "Download Now"
+    text "Free to use. Premium features for $4.99/month." center muted
+    row center
+      button "App Store" href=https://apps.apple.com
+      button "Google Play" href=https://play.google.com secondary
+
+  footer "© 2026 Focusly. Made with ❤️ in San Francisco."

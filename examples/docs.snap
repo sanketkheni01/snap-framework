@@ -1,0 +1,66 @@
+@title Snap Documentation
+@description Learn how to build with Snap
+
+layout
+  nav "Snap Docs"
+    link "Getting Started" href=/docs/start
+    link "Components" href=/docs/components
+    link "Styling" href=/docs/styling
+    link "API" href=/docs/api
+    button "GitHub" href=https://github.com/snap
+
+  section "Getting Started"
+    text "Snap is a declarative web framework where you describe pages, not code them. Every .snap file compiles to a standalone HTML page." muted
+
+    heading "Installation" level=3
+    code "npm install -g snap-framework"
+
+    heading "Create a Project" level=3
+    code "snap init my-site\ncd my-site\nsnap dev"
+
+    heading "Your First Page" level=3
+    text "Create index.snap in your project root:" muted
+    code "layout\n  nav \"My App\"\n  hero \"Hello World\" bg-gradient\n    text \"Welcome to my site\"\n    button \"Get Started\"\n  footer \"Made with Snap\""
+
+  section "Core Concepts"
+    tabs "Components,Styling,Meta Directives"
+      section "Components"
+        text "Components are the building blocks of Snap pages. Use indentation to nest them." muted
+        code "grid cols=2\n  card \"Left\"\n    text \"Content\"\n  card \"Right\"\n    text \"Content\""
+      section "Styling"
+        text "Add style keywords after the component name. No CSS needed." muted
+        code "text \"Hello\" primary bold center\nbutton \"Click\" secondary pill\ncard \"Title\" shadow hover-lift"
+      section "Meta"
+        text "Meta directives configure page-level settings at the top of your file." muted
+        code "@title My Page\n@description SEO text\n@theme dark\n@font Poppins"
+
+  section "Component Reference"
+    accordion "Layout Components"
+      text "layout, section, row, column, grid, spacer, divider" bold
+      text "Use layout as your root component. Section provides max-width content areas." muted
+    accordion "Navigation"
+      text "nav, link, button" bold
+      text "Nav creates a sticky top bar. Use link for nav items and button for CTAs." muted
+    accordion "Content"
+      text "heading, text, quote, code, list, item, badge" bold
+      text "Text is for paragraphs. Use heading with level=N for different sizes." muted
+    accordion "Data Display"
+      text "card, stat, table, chart, progress" bold
+      text "Cards are the most versatile component. Combine with stat for dashboards." muted
+    accordion "Interactive"
+      text "tabs, accordion, modal, dropdown, toggle, carousel" bold
+      text "All interactive components work without any JavaScript configuration." muted
+
+  section "Need Help?"
+    grid cols=3
+      card "💬 Community"
+        text "Join our Discord for help and discussion." muted
+        link "Join Discord" href=/discord
+      card "📖 Examples"
+        text "Browse 15+ complete example pages." muted
+        link "View Examples" href=/examples
+      card "🐛 Bug Reports"
+        text "Found an issue? Let us know on GitHub." muted
+        link "Report Bug" href=/github/issues
+
+  footer "© 2026 Snap Framework"

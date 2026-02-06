@@ -1,0 +1,73 @@
+@title Alex Rivera — Full-Stack Developer
+@theme ocean
+
+layout
+  nav "Alex Rivera"
+    link "Projects" href=#projects
+    link "Skills" href=#skills
+    link "About" href=#about
+    link "Contact" href=#contact
+
+  hero "I build things for the web" bg-gradient
+    text "Full-stack developer specializing in React, Node.js, and cloud architecture. 6 years of shipping products people love."
+    row center
+      button "View Projects" href=#projects
+      button "Download CV" href=/cv.pdf secondary
+
+  section "Featured Projects"
+    grid cols=3
+      card "E-Commerce Platform" hover-lift
+        badge "React"
+        badge "Node.js"
+        text "Built a scalable marketplace handling 50k daily transactions with real-time inventory tracking." muted
+        link "View Case Study" href=/projects/ecommerce
+      card "Health Tracker App" hover-lift
+        badge "React Native"
+        badge "Firebase"
+        text "Mobile app with 100k+ downloads. Integrates with Apple Health and Google Fit." muted
+        link "View Case Study" href=/projects/health
+      card "AI Writing Assistant" hover-lift
+        badge "Python"
+        badge "GPT-4"
+        text "Chrome extension that helps writers improve their content using AI. 20k active users." muted
+        link "View Case Study" href=/projects/ai-writer
+
+  section "Technical Skills"
+    grid cols=4
+      card
+        progress "React" value=95
+      card
+        progress "TypeScript" value=90
+      card
+        progress "Node.js" value=88
+      card
+        progress "Python" value=80
+      card
+        progress "AWS" value=85
+      card
+        progress "PostgreSQL" value=82
+      card
+        progress "Docker" value=78
+      card
+        progress "GraphQL" value=75
+
+  section "Experience"
+    timeline
+      card "Senior Developer — TechCorp"
+        text "2023 — Present" small muted
+        text "Leading a team of 8 engineers building the next-gen analytics platform." muted
+      card "Full-Stack Developer — StartupXYZ"
+        text "2021 — 2023" small muted
+        text "Built core product from scratch. Grew from 0 to 50k users." muted
+      card "Junior Developer — WebAgency"
+        text "2019 — 2021" small muted
+        text "Delivered 30+ client projects across e-commerce, SaaS, and media." muted
+
+  section "Get In Touch"
+    text "Interested in working together? Let's talk." center muted
+    row center
+      button "Email Me" href=mailto:alex@example.com
+      button "LinkedIn" href=https://linkedin.com secondary
+      button "GitHub" href=https://github.com secondary
+
+  footer "© 2026 Alex Rivera. Built with Snap."

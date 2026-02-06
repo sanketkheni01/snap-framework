@@ -1,0 +1,72 @@
+@title Bella Cucina — Italian Restaurant
+@theme sunset
+@description Authentic Italian cuisine in the heart of downtown
+
+layout
+  nav "Bella Cucina"
+    link "Menu" href=#menu
+    link "About" href=#about
+    link "Gallery" href=#gallery
+    button "Reserve a Table" href=#reserve
+
+  hero "Authentic Italian, Made with Love" bg-gradient
+    text "Family recipes passed down through four generations. Fresh ingredients, handmade pasta, unforgettable flavors."
+    button "View Menu" href=#menu
+
+  section "Our Menu"
+    heading "Antipasti" level=3
+    grid cols=3
+      card "Bruschetta"
+        text "Grilled bread with fresh tomatoes, basil, and extra virgin olive oil." muted
+        text "$12" bold
+      card "Carpaccio"
+        text "Thinly sliced beef with arugula, parmesan, and truffle oil." muted
+        text "$16" bold
+      card "Calamari Fritti"
+        text "Crispy fried calamari with marinara and lemon aioli." muted
+        text "$14" bold
+
+    spacer
+
+    heading "Pasta" level=3
+    grid cols=3
+      card "Cacio e Pepe"
+        text "Tonnarelli with pecorino romano and black pepper." muted
+        text "$18" bold
+      card "Pappardelle Bolognese"
+        text "Handmade pappardelle with slow-cooked meat ragù." muted
+        text "$22" bold
+      card "Lobster Linguine"
+        text "Fresh linguine with Maine lobster in a light tomato cream sauce." muted
+        text "$28" bold
+
+    spacer
+
+    heading "Dolci" level=3
+    grid cols=3
+      card "Tiramisu"
+        text "Classic coffee-soaked ladyfingers with mascarpone cream." muted
+        text "$10" bold
+      card "Panna Cotta"
+        text "Vanilla bean panna cotta with seasonal berry compote." muted
+        text "$10" bold
+      card "Cannoli"
+        text "Crispy shells filled with sweet ricotta and chocolate chips." muted
+        text "$8" bold
+
+  section "About Us"
+    text "Since 1982, Bella Cucina has served the community with the warmth and flavors of Southern Italy. Chef Marco Rossi and his team craft each dish with care, sourcing ingredients from local farms and Italian importers." muted
+    grid cols=3
+      stat "40+" label="Years Open"
+      stat "200+" label="Menu Items"
+      stat "4.9★" label="Avg Rating"
+
+  section "Reserve a Table"
+    form "Make a Reservation"
+      input "Name"
+      input "Email" type=email
+      input "Date" type=text placeholder="MM/DD/YYYY"
+      input "Party Size" type=text placeholder="Number of guests"
+      button "Reserve Now"
+
+  footer "© 2026 Bella Cucina. 123 Main Street, Downtown."

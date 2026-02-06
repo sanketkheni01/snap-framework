@@ -1,0 +1,51 @@
+@title Contact Us — Acme Inc.
+@description Get in touch with our team
+
+layout
+  nav "Acme"
+    link "Home" href=/
+    link "Products" href=/products
+    link "About" href=/about
+    link "Contact" href=/contact
+
+  hero "Get In Touch" bg-gradient
+    text "Have a question, feedback, or want to work together? We'd love to hear from you."
+
+  section "Contact Us"
+    grid cols=2
+      card
+        form "Send a Message"
+          input "Name"
+          input "Email" type=email
+          input "Subject"
+          input "Message" type=textarea
+          button "Send Message"
+
+      card "Other Ways to Reach Us"
+        heading "📧 Email" level=3
+        text "hello@acme.com" muted
+        link "Send Email" href=mailto:hello@acme.com
+        spacer size=1rem
+        heading "📞 Phone" level=3
+        text "+1 (555) 123-4567" muted
+        text "Mon-Fri, 9am-6pm PST" small muted
+        spacer size=1rem
+        heading "📍 Office" level=3
+        text "123 Innovation Drive" muted
+        text "San Francisco, CA 94105" muted
+        spacer size=1rem
+        heading "🌐 Social" level=3
+        row
+          link "Twitter" href=https://twitter.com/acme
+          link "LinkedIn" href=https://linkedin.com/company/acme
+          link "GitHub" href=https://github.com/acme
+
+  section "FAQ"
+    accordion "What's your response time?"
+      text "We typically respond within 24 hours on business days."
+    accordion "Do you offer support on weekends?"
+      text "Email support is available Monday through Friday. For urgent issues, Enterprise customers have 24/7 access."
+    accordion "Can I schedule a demo?"
+      text "Absolutely! Use the form above or email us directly at demos@acme.com."
+
+  footer "© 2026 Acme Inc. All rights reserved."

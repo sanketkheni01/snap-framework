@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Analytics Dashboard</title>
-  <meta name="description" content="Real-time analytics overview">
-  <meta property="og:title" content="Analytics Dashboard">
-  <meta property="og:description" content="Real-time analytics overview">
+  <title>Contact Us — Acme Inc.</title>
+  <meta name="description" content="Get in touch with our team">
+  <meta property="og:title" content="Contact Us — Acme Inc.">
+  <meta property="og:description" content="Get in touch with our team">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -206,99 +206,39 @@ h1.snap-heading { font-size: 2.5rem; } h2.snap-heading { font-size: 2rem; } h3.s
 </style>
 </head>
 <body>
-<div class="snap-layout"><nav class="snap-nav"><div class="snap-nav-inner"><a class="snap-nav-brand" href="/">Analytics</a><div class="snap-nav-links"><a href="/" class="snap-link">Overview</a>
-<a href="/reports" class="snap-link">Reports</a>
-<a href="/customers" class="snap-link">Customers</a>
-<a href="/settings" class="snap-link">Settings</a></div></div></nav>
-<section class="snap-section"><h2 class="snap-section-title">Overview</h2><div class="snap-grid" style="--cols:4;--gap:1.5rem;"><div class="snap-card snap-fade-in"><div class="snap-stat"><div class="snap-stat-value">$48,290</div><div class="snap-stat-label">Revenue</div><div class="snap-stat-trend up">+12.5%</div></div></div>
-<div class="snap-card snap-fade-in"><div class="snap-stat"><div class="snap-stat-value">2,847</div><div class="snap-stat-label">Active Users</div><div class="snap-stat-trend up">+8.2%</div></div></div>
-<div class="snap-card snap-fade-in"><div class="snap-stat"><div class="snap-stat-value">1,024</div><div class="snap-stat-label">Orders</div><div class="snap-stat-trend down">-2.4%</div></div></div>
-<div class="snap-card snap-fade-in"><div class="snap-stat"><div class="snap-stat-value">3.6%</div><div class="snap-stat-label">Conversion</div><div class="snap-stat-trend up">+0.8%</div></div></div></div></section>
-<section class="snap-section"><h2 class="snap-section-title">Trends</h2><div class="snap-grid" style="--cols:2;--gap:1.5rem;"><div class="snap-card"><h3 class="snap-card-title">Revenue Trend</h3><div class="snap-chart"><h3>Monthly Revenue</h3><canvas id="chart_1" height="300"></canvas></div></div>
-<div class="snap-card"><h3 class="snap-card-title">Sales by Category</h3><div class="snap-chart"><h3>Categories</h3><canvas id="chart_2" height="300"></canvas></div></div></div>
-<div class="snap-spacer" style="height:2rem"></div>
-<div class="snap-grid" style="--cols:2;--gap:1.5rem;"><div class="snap-card"><h3 class="snap-card-title">Weekly Orders</h3><div class="snap-chart"><canvas id="chart_3" height="300"></canvas></div></div>
-<div class="snap-card"><h3 class="snap-card-title">Traffic Sources</h3><div class="snap-chart"><canvas id="chart_4" height="300"></canvas></div></div></div></section>
-<section class="snap-section"><h2 class="snap-section-title">Recent Activity</h2><div class="snap-card"><h3 class="snap-card-title">Recent Orders</h3><div class="snap-table-wrap"><table class="snap-table"><thead><tr><th>Order ID</th><th>Customer</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead><tbody></tbody></table></div></div>
-<div class="snap-spacer" style="height:2rem"></div>
-<div class="snap-grid" style="--cols:2;--gap:1.5rem;"><div class="snap-card"><h3 class="snap-card-title">Top Products</h3><ul class="snap-list"><li class="snap-item">Wireless Headphones — $79.99 (342 sold)</li>
-<li class="snap-item">Smart Watch Pro — $199.99 (218 sold)</li>
-<li class="snap-item">USB-C Hub — $34.99 (189 sold)</li>
-<li class="snap-item">Laptop Stand — $49.99 (156 sold)</li></ul></div>
-<div class="snap-card"><h3 class="snap-card-title">Alerts</h3><div class="snap-alert snap-alert-success">Revenue target achieved for Q1!</div>
-<div class="snap-alert snap-alert-warning">Inventory low on 3 products</div>
-<div class="snap-alert snap-alert-info">New feature deployment scheduled for Friday</div></div></div></section>
-<footer class="snap-footer"><p>© 2026 Dashboard Inc.</p></footer></div>
+<div class="snap-layout"><nav class="snap-nav"><div class="snap-nav-inner"><a class="snap-nav-brand" href="/">Acme</a><div class="snap-nav-links"><a href="/" class="snap-link">Home</a>
+<a href="/products" class="snap-link">Products</a>
+<a href="/about" class="snap-link">About</a>
+<a href="/contact" class="snap-link">Contact</a></div></div></nav>
+<section class="snap-hero snap-hero-gradient" style="background: linear-gradient(135deg, var(--primary), var(--accent))"><div class="snap-hero-inner"><h1 class="snap-hero-title">Get In Touch</h1><p class="snap-text">Have a question, feedback, or want to work together? We'd love to hear from you.</p></div></section>
+<section class="snap-section"><h2 class="snap-section-title">Contact Us</h2><div class="snap-grid" style="--cols:2;--gap:1.5rem;"><div class="snap-card"><form class="snap-form" onsubmit="event.preventDefault()"><h3>Send a Message</h3><div class="snap-field"><label class="snap-label">Name</label><input type="text" name="name" placeholder="Name" class="snap-input" /></div>
+<div class="snap-field"><label class="snap-label">Email</label><input type="email" name="email" placeholder="Email" class="snap-input" /></div>
+<div class="snap-field"><label class="snap-label">Subject</label><input type="text" name="subject" placeholder="Subject" class="snap-input" /></div>
+<div class="snap-field"><label class="snap-label">Message</label><input type="textarea" name="message" placeholder="Message" class="snap-input" /></div>
+<button class="snap-btn ">Send Message</button></form></div>
+<div class="snap-card"><h3 class="snap-card-title">Other Ways to Reach Us</h3><h3 class="snap-heading">📧 Email</h3>
+<p class="snap-text" style="color: var(--muted)">hello@acme.com</p>
+<a href="mailto:hello@acme.com" class="snap-link">Send Email</a>
+<div class="snap-spacer" style="height:1rem"></div>
+<h3 class="snap-heading">📞 Phone</h3>
+<p class="snap-text" style="color: var(--muted)">+1 (555) 123-4567</p>
+<p class="snap-text" style="font-size: 0.875rem; color: var(--muted)">Mon-Fri, 9am-6pm PST</p>
+<div class="snap-spacer" style="height:1rem"></div>
+<h3 class="snap-heading">📍 Office</h3>
+<p class="snap-text" style="color: var(--muted)">123 Innovation Drive</p>
+<p class="snap-text" style="color: var(--muted)">San Francisco, CA 94105</p>
+<div class="snap-spacer" style="height:1rem"></div>
+<h3 class="snap-heading">🌐 Social</h3>
+<div class="snap-row"><a href="https://twitter.com/acme" class="snap-link">Twitter</a>
+<a href="https://linkedin.com/company/acme" class="snap-link">LinkedIn</a>
+<a href="https://github.com/acme" class="snap-link">GitHub</a></div></div></div></section>
+<section class="snap-section"><h2 class="snap-section-title">FAQ</h2><div class="snap-accordion" id="acc_1"><div class="snap-accordion-header" onclick="this.parentElement.classList.toggle('open')">What's your response time?</div><div class="snap-accordion-body"><div class="snap-accordion-body-inner"><p class="snap-text">We typically respond within 24 hours on business days.</p></div></div></div>
+<div class="snap-accordion" id="acc_2"><div class="snap-accordion-header" onclick="this.parentElement.classList.toggle('open')">Do you offer support on weekends?</div><div class="snap-accordion-body"><div class="snap-accordion-body-inner"><p class="snap-text">Email support is available Monday through Friday. For urgent issues, Enterprise customers have 24/7 access.</p></div></div></div>
+<div class="snap-accordion" id="acc_3"><div class="snap-accordion-header" onclick="this.parentElement.classList.toggle('open')">Can I schedule a demo?</div><div class="snap-accordion-body"><div class="snap-accordion-body-inner"><p class="snap-text">Absolutely! Use the form above or email us directly at demos@acme.com.</p></div></div></div></section>
+<footer class="snap-footer"><p>© 2026 Acme Inc. All rights reserved.</p></footer></div>
 <script>
 function snapTabs(id,idx){var el=document.getElementById(id);var btns=el.querySelectorAll('.snap-tabs-nav button');var panels=el.querySelectorAll('.snap-tab-panel');btns.forEach(function(b,i){b.classList.toggle('active',i===idx)});panels.forEach(function(p,i){p.classList.toggle('active',i===idx)});}
 document.addEventListener('click',function(e){document.querySelectorAll('.snap-dropdown.open').forEach(function(d){if(!d.contains(e.target))d.classList.remove('open')})});
-
-    (function(){
-      const canvas = document.getElementById('chart_1');
-      if(!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const W = canvas.width = canvas.parentElement.offsetWidth;
-      const H = canvas.height = 300;
-      const labels = ["Jan","Feb","Mar","Apr","May","Jun"];
-      const values = [12000,19000,15000,22000,28000,48290];
-      const colors = ["#6366f1","#8b5cf6","#06b6d4","#22c55e","#f59e0b","#ef4444","#ec4899","#14b8a6"];
-      const max = Math.max(...values, 1);
-      ctx.font = '12px Inter, system-ui, sans-serif';
-      
-      const pad={t:20,r:20,b:40,l:50};const gW=W-pad.l-pad.r,gH=H-pad.t-pad.b;
-      ctx.strokeStyle='#e2e8f0';ctx.lineWidth=1;for(let i=0;i<=4;i++){const y=pad.t+gH*(1-i/4);ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(W-pad.r,y);ctx.stroke();ctx.fillStyle='#94a3b8';ctx.fillText(Math.round(max*i/4),5,y+4);}
-      ctx.beginPath();ctx.strokeStyle=colors[0];ctx.lineWidth=3;values.forEach((v,i)=>{const x=pad.l+i*(gW/(values.length-1||1));const y=pad.t+gH*(1-v/max);i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);ctx.fillStyle='#64748b';ctx.fillText(labels[i]||'',x-10,H-10);});ctx.stroke();
-      values.forEach((v,i)=>{const x=pad.l+i*(gW/(values.length-1||1));const y=pad.t+gH*(1-v/max);ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fillStyle=colors[0];ctx.fill();ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2);ctx.fill();});
-      
-    })();
-    (function(){
-      const canvas = document.getElementById('chart_2');
-      if(!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const W = canvas.width = canvas.parentElement.offsetWidth;
-      const H = canvas.height = Math.min(300, W);
-      const labels = ["Electronics","Clothing","Food","Books"];
-      const values = [45,28,18,9];
-      const colors = ["#6366f1","#8b5cf6","#06b6d4","#22c55e","#f59e0b","#ef4444","#ec4899","#14b8a6"];
-      const max = Math.max(...values, 1);
-      ctx.font = '12px Inter, system-ui, sans-serif';
-      
-      const total = values.reduce((a,b)=>a+b,0);let angle=-Math.PI/2;const cx=W/2,cy=H/2,r=Math.min(cx,cy)-40;
-      values.forEach((v,i)=>{const slice=(v/total)*Math.PI*2;ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,angle,angle+slice);ctx.fillStyle=colors[i%colors.length];ctx.fill();const mid=angle+slice/2;ctx.fillStyle='#1e293b';ctx.fillText(labels[i],cx+Math.cos(mid)*(r+20),cy+Math.sin(mid)*(r+20));angle+=slice;});
-      
-    })();
-    (function(){
-      const canvas = document.getElementById('chart_3');
-      if(!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const W = canvas.width = canvas.parentElement.offsetWidth;
-      const H = canvas.height = 300;
-      const labels = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
-      const values = [45,62,78,51,90,120,85];
-      const colors = ["#6366f1","#8b5cf6","#06b6d4","#22c55e","#f59e0b","#ef4444","#ec4899","#14b8a6"];
-      const max = Math.max(...values, 1);
-      ctx.font = '12px Inter, system-ui, sans-serif';
-      
-      const pad={t:20,r:20,b:40,l:50};const gW=W-pad.l-pad.r,gH=H-pad.t-pad.b;const bW=Math.min(60,gW/values.length*0.7);
-      ctx.strokeStyle='#e2e8f0';ctx.lineWidth=1;for(let i=0;i<=4;i++){const y=pad.t+gH*(1-i/4);ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(W-pad.r,y);ctx.stroke();ctx.fillStyle='#94a3b8';ctx.fillText(Math.round(max*i/4),5,y+4);}
-      values.forEach((v,i)=>{const x=pad.l+(i+0.5)*(gW/values.length)-bW/2;const h=gH*(v/max);const y=pad.t+gH-h;ctx.fillStyle=colors[i%colors.length];ctx.beginPath();ctx.roundRect?ctx.roundRect(x,y,bW,h,4):ctx.fillRect(x,y,bW,h);ctx.fill();ctx.fillStyle='#64748b';ctx.fillText(labels[i]||'',x,H-10);});
-      
-    })();
-    (function(){
-      const canvas = document.getElementById('chart_4');
-      if(!canvas) return;
-      const ctx = canvas.getContext('2d');
-      const W = canvas.width = canvas.parentElement.offsetWidth;
-      const H = canvas.height = Math.min(300, W);
-      const labels = ["Organic","Paid","Social","Direct"];
-      const values = [40,25,20,15];
-      const colors = ["#6366f1","#8b5cf6","#06b6d4","#22c55e","#f59e0b","#ef4444","#ec4899","#14b8a6"];
-      const max = Math.max(...values, 1);
-      ctx.font = '12px Inter, system-ui, sans-serif';
-      
-      const total = values.reduce((a,b)=>a+b,0);let angle=-Math.PI/2;const cx=W/2,cy=H/2,r=Math.min(cx,cy)-40;
-      values.forEach((v,i)=>{const slice=(v/total)*Math.PI*2;ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,angle,angle+slice);ctx.fillStyle=colors[i%colors.length];ctx.fill();const mid=angle+slice/2;ctx.fillStyle='#1e293b';ctx.fillText(labels[i],cx+Math.cos(mid)*(r+20),cy+Math.sin(mid)*(r+20));angle+=slice;});
-      
-    })();</script>
+</script>
 </body>
 </html>

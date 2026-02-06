@@ -1,0 +1,68 @@
+@title DevConf 2026 — The Developer Conference
+
+layout
+  nav "DevConf 2026"
+    link "Schedule" href=#schedule
+    link "Speakers" href=#speakers
+    link "Tickets" href=#tickets
+    button "Get Tickets" href=#tickets
+
+  hero "DevConf 2026" bg-gradient
+    text "The premier developer conference. March 15-17, San Francisco."
+    countdown to="2026-03-15T09:00:00"
+    spacer
+    button "Get Your Ticket" href=#tickets
+
+  section "Schedule"
+    tabs "Day 1,Day 2,Day 3"
+      card
+        list
+          item "9:00 AM — Opening Keynote: The Future of AI-Native Development"
+          item "10:30 AM — Workshop: Building with Snap Framework"
+          item "1:00 PM — Panel: WebAssembly in Production"
+          item "3:00 PM — Talk: Scaling to 1M Users with Edge Computing"
+          item "5:00 PM — Networking Happy Hour"
+      card
+        list
+          item "9:00 AM — Keynote: Open Source in 2026"
+          item "10:30 AM — Workshop: Rust for Web Developers"
+          item "1:00 PM — Talk: Design Systems at Scale"
+          item "3:00 PM — Panel: The Future of Frontend"
+          item "5:00 PM — Lightning Talks"
+      card
+        list
+          item "9:00 AM — Keynote: Security in the AI Age"
+          item "10:30 AM — Workshop: Building Developer Tools"
+          item "1:00 PM — Talk: From Monolith to Microservices"
+          item "3:00 PM — Closing Keynote + Awards"
+          item "5:00 PM — After Party"
+
+  section "Speakers"
+    grid cols=4
+      card center
+        heading "🎤" level=2
+        text "Sarah Chen" bold
+        text "VP Engineering, Google" muted small
+      card center
+        heading "🎤" level=2
+        text "Marcus Johnson" bold
+        text "CTO, Vercel" muted small
+      card center
+        heading "🎤" level=2
+        text "Priya Patel" bold
+        text "Creator, Snap Framework" muted small
+      card center
+        heading "🎤" level=2
+        text "James Park" bold
+        text "Founder, DevTools Inc" muted small
+
+  section "Tickets"
+    grid cols=3
+      pricing "Early Bird" price="$299" features="All sessions,Workshop access,Lunch included,Conference swag"
+        button "Buy Now"
+      pricing "Regular" price="$499" features="All sessions,Workshop access,Lunch included,Conference swag,After party"
+        button "Buy Now"
+      pricing "VIP" price="$999" features="Everything in Regular,Front row seats,Speaker dinner,1-on-1 mentoring,Premium swag"
+        button "Buy VIP"
+
+  footer "© 2026 DevConf. San Francisco Convention Center."

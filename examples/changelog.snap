@@ -1,0 +1,55 @@
+@title Changelog — Snap Framework
+
+layout
+  nav "Snap Changelog"
+    link "Docs" href=/docs
+    link "GitHub" href=https://github.com/snap
+    button "Download Latest" href=/download
+
+  hero "Changelog" bg-gradient
+    text "Everything new in Snap Framework."
+
+  section "v0.2.0 — February 2026"
+    badge "Latest"
+    text "Major release with interactive components and new marketing blocks." muted
+    heading "New Components" level=3
+    list
+      item "tabs — Tabbed content panels"
+      item "accordion — Collapsible sections"
+      item "modal — Popup dialogs"
+      item "dropdown — Dropdown menus"
+      item "carousel — Image/content carousel"
+      item "pricing — Pricing cards with features list"
+      item "testimonial — Customer testimonial blocks"
+      item "timeline — Vertical timeline"
+      item "progress — Progress bars"
+      item "alert — Info/success/warning/danger alerts"
+      item "countdown — Live countdown timer"
+    heading "New Features" level=3
+    list
+      item "Theme presets: dark, ocean, sunset"
+      item "Animation keywords: fade-in, slide-up, hover-lift, etc."
+      item "Template variables with @var-name"
+      item "@import for reusable partials"
+      item "@define/@end for component definitions"
+
+  divider
+
+  section "v0.1.0 — January 2026"
+    text "Initial release with core components and styling system." muted
+    heading "Components" level=3
+    list
+      item "layout, nav, hero, section, footer"
+      item "card, grid, row, column"
+      item "heading, text, quote, code, list"
+      item "button, link, image, video"
+      item "form, input"
+      item "stat, badge, table, chart"
+    heading "Features" level=3
+    list
+      item "Style keywords for colors, sizing, spacing, effects"
+      item "Canvas-based charts (bar, line, pie)"
+      item "Zero-config dev server with hot reload"
+      item "Static HTML build output"
+
+  footer "© 2026 Snap Framework"
