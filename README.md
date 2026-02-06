@@ -32,7 +32,7 @@ That's a complete, responsive, professionally-styled website. **~30 tokens.**
 
 ### LLM Cost Comparison
 
-Using Claude Sonnet (~$3/M input + $15/M output tokens):
+**Claude Sonnet** (~$3/M input + $15/M output tokens):
 
 | | Snap | HTML/CSS | React |
 |--|------|----------|-------|
@@ -40,6 +40,26 @@ Using Claude Sonnet (~$3/M input + $15/M output tokens):
 | Cost per page | **$0.015** | $0.12 | $0.18 |
 | 100 pages/day | **$1.50** | $12.00 | $18.00 |
 | 1,000 pages/day | **$15** | $120 | $180 |
+
+**Claude Opus** (~$15/M input + $75/M output tokens):
+
+| | Snap | HTML/CSS | React |
+|--|------|----------|-------|
+| Tokens to generate a page | **~1,000** | ~8,000 | ~12,000 |
+| Cost per page | **$0.075** | $0.60 | $0.90 |
+| 100 pages/day | **$7.50** | $60.00 | $90.00 |
+| 1,000 pages/day | **$75** | $600 | $900 |
+
+**GPT-4o** (~$2.50/M input + $10/M output tokens):
+
+| | Snap | HTML/CSS | React |
+|--|------|----------|-------|
+| Tokens to generate a page | **~1,000** | ~8,000 | ~12,000 |
+| Cost per page | **$0.01** | $0.08 | $0.12 |
+| 100 pages/day | **$1.00** | $8.00 | $12.00 |
+| 1,000 pages/day | **$10** | $80 | $120 |
+
+> **The more expensive the model, the more Snap saves you.** With Opus at scale, Snap saves **$825/day** compared to React for 1,000 pages.
 
 ### Speed
 
