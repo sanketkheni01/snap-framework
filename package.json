@@ -1,16 +1,41 @@
 {
   "name": "snap-framework",
-  "version": "0.1.0",
-  "description": "LLM-native web framework. Describe websites, don't code them.",
-  "main": "src/index.js",
-  "bin": { "snap": "./cli.js" },
+  "version": "0.2.0",
+  "description": "LLM-native web framework. Describe websites, don't code them. Zero CSS, zero config, beautiful defaults.",
+  "main": "src/compiler.js",
+  "bin": {
+    "snap": "./cli.js"
+  },
   "type": "module",
   "scripts": {
     "dev": "node cli.js dev",
     "build": "node cli.js build",
     "serve": "node cli.js serve"
   },
-  "dependencies": {
-    "chokidar": "^3.5.3"
+  "keywords": [
+    "web-framework",
+    "llm",
+    "ai",
+    "static-site-generator",
+    "no-code",
+    "dsl",
+    "website-builder",
+    "snap",
+    "html-generator"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/purelydev/snap-framework.git"
+  },
+  "files": [
+    "cli.js",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
   }
 }

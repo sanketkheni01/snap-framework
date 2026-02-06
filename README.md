@@ -24,23 +24,21 @@ That's a complete, responsive, professionally-styled website. **~30 tokens.**
 | Professional styling | ✅ built-in | manual | manual |
 | LLM can generate | ✅ trivially | ⚠️ with errors | ⚠️ verbose |
 
-**LLMs waste tokens on boilerplate.** Snap eliminates it.
-
 ## Getting Started
 
 ```bash
+# Install globally
+npm install -g snap-framework
+
 # Create a new project
-node cli.js init my-site
+snap init my-site
 
 # Start dev server
-cd my-site
-node /path/to/snap/cli.js dev
+cd my-site && snap dev
 
 # Build for production
-node /path/to/snap/cli.js build
+snap build
 ```
-
-Or just create an `index.snap` file and run `node cli.js dev` in that directory.
 
 ## Syntax Reference
 
@@ -50,24 +48,74 @@ Or just create an `index.snap` file and run `node cli.js dev` in that directory.
 @title My Page Title
 @description SEO description
 @theme dark
+@font "Poppins"
+@og-image https://example.com/image.png
+@favicon /favicon.ico
+```
+
+### Template Variables
+
+```
+@var-name "World"
+@var-count "42"
+
+text "Hello {name}, you have {count} items"
+```
+
+### Data Binding
+
+```
+@data url=/api/data
+text "Welcome {username}"
+```
+
+### Theming
+
+Built-in themes: `default`, `dark`, `ocean`, `sunset`
+
+```
+@theme dark
+```
+
+Custom colors:
+
+```
+@theme custom
+@color-primary #ff6600
+@color-secondary #cc3300
+@font "Poppins"
+```
+
+### Component Import & Reuse
+
+```
+@import "header.snap"
+
+@define my-card
+  card "Reusable Card"
+    text "This is reusable"
+@end
+
+use "my-card"
+use "my-card"
 ```
 
 ### Components
 
 #### Layout & Structure
 ```
-layout              — Full page wrapper (flex column, min-height 100vh)
-section "Title"     — Content section with max-width
-row                 — Horizontal flex container
+layout              — Full page wrapper
+section "Title"     — Content section
+row                 — Horizontal flex
 column              — Flex column
-grid cols=3         — Responsive grid (auto-collapses on mobile)
+grid cols=3         — Responsive grid
 spacer              — Vertical space
 divider             — Horizontal line
 ```
 
 #### Navigation
 ```
-nav "Brand Name"    — Sticky top nav
+nav "Brand Name"
   link "Label" href=/path
   button "CTA" href=/signup
 ```
@@ -82,9 +130,9 @@ hero "Big Title" bg-gradient
 #### Content
 ```
 heading "Title" level=2
-text "Paragraph content" muted
-quote "Blockquote text"
-code "code snippet here"
+text "Paragraph" muted
+quote "Blockquote"
+code "code snippet"
 list
   item "First item"
   item "Second item"
@@ -92,20 +140,19 @@ list
 
 #### Cards & Data
 ```
-card "Card Title"
-  text "Card content"
+card "Title"
+  text "Content"
   badge "Tag"
 
 stat "Label" value="$1,234" trend="+5%"
-
 table headers="Name,Email,Role"
 ```
 
-#### Charts (canvas-based, no dependencies)
+#### Charts
 ```
-chart "Title" type=bar labels="A,B,C" values="10,20,30"
-chart "Title" type=line labels="Jan,Feb,Mar" values="100,200,150"
-chart "Title" type=pie labels="X,Y,Z" values="40,35,25"
+chart "Revenue" type=bar labels="Q1,Q2,Q3" values="10,20,30"
+chart "Growth" type=line labels="Jan,Feb,Mar" values="100,200,150"
+chart "Split" type=pie labels="A,B,C" values="40,35,25"
 ```
 
 #### Forms
@@ -113,7 +160,6 @@ chart "Title" type=pie labels="X,Y,Z" values="40,35,25"
 form "Contact Us"
   input "Name"
   input "Email" type=email
-  input "Message" type=textarea
   button "Send"
 ```
 
@@ -121,13 +167,124 @@ form "Contact Us"
 ```
 image src="/photo.jpg" alt="Description"
 video src="/clip.mp4"
-link "Click here" href=https://example.com
-button "Action" href=/path
+embed src="https://youtube.com/..."
+```
+
+### Interactive Components
+
+#### Tabs
+```
+tabs "Overview,Features,Pricing"
+  text "Overview content here"
+  text "Features content here"
+  text "Pricing content here"
+```
+
+#### Accordion
+```
+accordion "Click to expand"
+  text "Hidden content revealed on click"
+```
+
+#### Modal
+```
+modal "Open Dialog"
+  heading "Modal Title" level=3
+  text "Modal body content"
+  button "Close"
+```
+
+#### Dropdown
+```
+dropdown "Select Option"
+  link "Option 1" href=#
+  link "Option 2" href=#
+  link "Option 3" href=#
+```
+
+#### Toggle
+```
+toggle "Enable notifications"
+```
+
+#### Counter
+```
+counter value=0
+```
+
+#### Toast
+```
+toast "Item saved successfully!" trigger="Save Item"
+```
+
+### More Components
+
+#### Carousel
+```
+carousel
+  image src="/slide1.jpg"
+  image src="/slide2.jpg"
+  image src="/slide3.jpg"
+```
+
+#### Pricing Card
+```
+pricing "Pro Plan" price="$29" period="/mo" features="Unlimited projects,Priority support,API access"
+  button "Get Started" href=/signup
+```
+
+#### Testimonial
+```
+testimonial "Amazing product, changed everything!" author="Jane Doe" role="CEO, Acme" avatar="/jane.jpg"
+```
+
+#### Timeline
+```
+timeline
+  text "2024 — Company founded"
+  text "2025 — Series A raised"
+  text "2026 — Global launch"
+```
+
+#### Progress Bar
+```
+progress "Upload" value=75
+```
+
+#### Alert
+```
+alert "Action completed successfully" type=success
+alert "Please review your input" type=warning
+alert "Something went wrong" type=danger
+```
+
+#### Countdown
+```
+countdown to="2026-12-31"
+```
+
+### Animations
+
+Add animation keywords to any component:
+
+#### Entrance Animations
+`fade-in` `slide-up` `slide-left` `slide-right`
+
+#### Attention Animations
+`bounce` `pulse` `shake`
+
+#### Hover Effects
+`hover-grow` `hover-glow` `hover-lift`
+
+```
+card "Feature" fade-in hover-lift
+  text "Animated card"
+
+hero "Welcome" slide-up
+  button "CTA" pulse
 ```
 
 ### Style Keywords
-
-No CSS needed. Just add keywords after your component:
 
 #### Colors
 `primary` `secondary` `accent` `muted` `danger` `success` `warning` `dark` `light` `white`
@@ -147,24 +304,73 @@ No CSS needed. Just add keywords after your component:
 #### Effects
 `rounded` `pill` `shadow` `shadow-lg` `border` `bold` `italic` `uppercase` `underline` `clickable` `truncate`
 
-### Nesting
+## SEO & Build
 
-Indent with 2 spaces to nest components:
+Build generates:
+- Static HTML files
+- `sitemap.xml` — auto-generated from all pages
+- `robots.txt` — search engine friendly defaults
 
+Meta directives:
 ```
-grid cols=2
-  card "Left"
-    text "Content"
-  card "Right"
-    text "Content"
+@title Page Title
+@description Meta description for SEO
+@og-image https://example.com/og.png
+@favicon /favicon.ico
 ```
+
+## CLI Commands
+
+| Command | Description |
+|---|---|
+| `snap init [name]` | Create new project |
+| `snap dev [port]` | Dev server with hot reload |
+| `snap build [dir]` | Build static HTML + sitemap + robots.txt |
+| `snap serve [dir]` | Serve built files |
 
 ## Examples
 
-### Dashboard (~40 lines, ~150 tokens)
+### Landing Page (~25 lines)
+
+```
+@title My SaaS
+@theme default
+
+layout
+  nav "Acme"
+    link "Features" href=#f
+    button "Sign Up" href=/signup
+
+  hero "Ship 10x faster" bg-gradient slide-up
+    text "The modern platform for building products."
+    button "Start Free" pulse
+
+  section "Features"
+    grid cols=3
+      card "⚡ Fast" fade-in hover-lift
+        text "Deploy in seconds."
+      card "🔒 Secure" fade-in hover-lift
+        text "Enterprise-grade security."
+      card "📊 Analytics" fade-in hover-lift
+        text "Built-in insights."
+
+  section "Pricing"
+    grid cols=3
+      pricing "Free" price="$0" features="1 project,Community support"
+        button "Start Free"
+      pricing "Pro" price="$29" period="/mo" features="Unlimited projects,Priority support,API access"
+        button "Get Started"
+      pricing "Enterprise" price="Custom" features="Everything in Pro,SLA,Dedicated support"
+        button "Contact Us"
+
+  footer "© 2026 Acme"
+```
+
+### Dark Dashboard
 
 ```
 @title Dashboard
+@theme dark
 
 layout
   nav "Dashboard"
@@ -182,39 +388,13 @@ layout
       card
         stat "Rate" value="3.6%"
 
-    grid cols=2
-      card "Revenue"
-        chart type=line labels="Jan,Feb,Mar,Apr" values="12,19,15,28"
-      card "Categories"
-        chart type=pie labels="A,B,C" values="45,28,18"
+    accordion "Revenue Details"
+      chart type=line labels="Jan,Feb,Mar,Apr" values="12,19,15,28"
+
+    accordion "Categories"
+      chart type=pie labels="A,B,C" values="45,28,18"
 
   footer "© 2026"
-```
-
-### Landing Page (~25 lines, ~100 tokens)
-
-```
-@title My SaaS
-
-layout
-  nav "Acme"
-    link "Features" href=#f
-    button "Sign Up" href=/signup
-
-  hero "Ship 10x faster" bg-gradient
-    text "The modern platform for building products."
-    button "Start Free"
-
-  section "Features"
-    grid cols=3
-      card "⚡ Fast"
-        text "Deploy in seconds."
-      card "🔒 Secure"
-        text "Enterprise-grade security."
-      card "📊 Analytics"
-        text "Built-in insights."
-
-  footer "© 2026 Acme"
 ```
 
 ## Architecture
@@ -223,27 +403,10 @@ layout
 .snap file → Parser (AST) → Compiler (HTML+CSS+JS) → Browser
 ```
 
-- **Parser**: Line-by-line, indent-based. No complex grammar needed.
-- **Compiler**: AST → semantic HTML with scoped CSS classes.
+- **Parser**: Line-by-line, indent-based. Supports imports, defines, variables.
+- **Compiler**: AST → semantic HTML with themed CSS + vanilla JS interactivity.
 - **Server**: Zero-config dev server with SSE hot reload.
-- **Build**: Outputs static HTML files. Single-file, no dependencies.
-
-## CLI Commands
-
-| Command | Description |
-|---|---|
-| `snap init [name]` | Create new project with starter files |
-| `snap dev [port]` | Dev server with hot reload (default: 3000) |
-| `snap build [dir]` | Build to static HTML (default: dist/) |
-| `snap serve [dir]` | Serve built files |
-
-## Design Philosophy
-
-1. **Describe, don't code** — If you can explain it, you can build it
-2. **Convention over configuration** — Zero config files, sensible defaults
-3. **Beautiful by default** — Professional design without any styling
-4. **LLM-native** — Optimized for AI generation (minimal tokens, no ambiguity)
-5. **Single-file pages** — One `.snap` file = one complete page
+- **Build**: Static HTML + sitemap.xml + robots.txt. Zero dependencies.
 
 ## License
 

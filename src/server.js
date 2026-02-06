@@ -1,4 +1,4 @@
-// Snap Dev Server with Hot Reload
+// Snap Dev Server with Hot Reload v0.2
 import http from 'http';
 import fs from 'fs';
 import path from 'path';
@@ -8,51 +8,36 @@ import { compile } from './compiler.js';
 const MIME = {
   '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript',
   '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg',
-  '.svg': 'image/svg+xml', '.ico': 'image/x-icon',
+  '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.xml': 'application/xml',
+  '.txt': 'text/plain',
 };
 
 export function createDevServer(projectDir, port = 3000) {
   const pagesDir = fs.existsSync(path.join(projectDir, 'pages'))
-    ? path.join(projectDir, 'pages')
-    : projectDir;
-
+    ? path.join(projectDir, 'pages') : projectDir;
   const clients = new Set();
 
   const server = http.createServer((req, res) => {
     const url = new URL(req.url, `http://localhost:${port}`);
     let pathname = url.pathname;
 
-    // SSE endpoint for hot reload
     if (pathname === '/__snap_sse') {
-      res.writeHead(200, {
-        'Content-Type': 'text/event-stream',
-        'Cache-Control': 'no-cache',
-        'Connection': 'keep-alive',
-        'Access-Control-Allow-Origin': '*',
-      });
+      res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*' });
       clients.add(res);
       req.on('close', () => clients.delete(res));
       return;
     }
 
-    // Route to .snap file
     let snapFile;
-    if (pathname === '/') {
-      snapFile = findSnapFile(pagesDir, 'index');
-    } else {
-      const name = pathname.slice(1).replace(/\/$/, '');
-      snapFile = findSnapFile(pagesDir, name);
-    }
+    if (pathname === '/') snapFile = findSnapFile(pagesDir, 'index');
+    else snapFile = findSnapFile(pagesDir, pathname.slice(1).replace(/\/$/, ''));
 
     if (snapFile) {
       try {
         const source = fs.readFileSync(snapFile, 'utf-8');
-        const ast = parse(source);
+        const ast = parse(source, path.dirname(snapFile));
         let html = compile(ast);
-        // Inject hot reload script
-        html = html.replace('</body>', `<script>
-(function(){const e=new EventSource('/__snap_sse');e.onmessage=()=>location.reload();e.onerror=()=>setTimeout(()=>location.reload(),1000)})();
-</script></body>`);
+        html = html.replace('</body>', `<script>(function(){const e=new EventSource('/__snap_sse');e.onmessage=()=>location.reload();e.onerror=()=>setTimeout(()=>location.reload(),1000)})();</script></body>`);
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end(html);
       } catch (err) {
@@ -62,7 +47,6 @@ export function createDevServer(projectDir, port = 3000) {
       return;
     }
 
-    // Static files
     const filePath = path.join(projectDir, pathname);
     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
       const ext = path.extname(filePath);
@@ -75,13 +59,6 @@ export function createDevServer(projectDir, port = 3000) {
     res.end('<h1>404 Not Found</h1>');
   });
 
-  function notifyClients() {
-    for (const client of clients) {
-      client.write('data: reload\n\n');
-    }
-  }
-
-  // Watch for changes
   let watchTimeout;
   function setupWatch() {
     const dirs = [pagesDir];
@@ -90,7 +67,7 @@ export function createDevServer(projectDir, port = 3000) {
       fs.watch(dir, { recursive: true }, (event, filename) => {
         if (filename && filename.endsWith('.snap')) {
           clearTimeout(watchTimeout);
-          watchTimeout = setTimeout(notifyClients, 100);
+          watchTimeout = setTimeout(() => { for (const c of clients) c.write('data: reload\n\n'); }, 100);
         }
       });
     }
@@ -101,16 +78,11 @@ export function createDevServer(projectDir, port = 3000) {
     console.log(`  Watching for changes in ${pagesDir}\n`);
     setupWatch();
   });
-
   return server;
 }
 
 function findSnapFile(dir, name) {
-  const candidates = [
-    path.join(dir, `${name}.snap`),
-    path.join(dir, name, 'index.snap'),
-  ];
-  for (const c of candidates) {
+  for (const c of [path.join(dir, `${name}.snap`), path.join(dir, name, 'index.snap')]) {
     if (fs.existsSync(c)) return c;
   }
   return null;
@@ -118,24 +90,32 @@ function findSnapFile(dir, name) {
 
 export function buildProject(projectDir, outDir) {
   const pagesDir = fs.existsSync(path.join(projectDir, 'pages'))
-    ? path.join(projectDir, 'pages')
-    : projectDir;
+    ? path.join(projectDir, 'pages') : projectDir;
 
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 
   const files = findAllSnapFiles(pagesDir);
   const built = [];
+  const pages = [];
 
   for (const file of files) {
     const source = fs.readFileSync(file, 'utf-8');
-    const ast = parse(source);
+    const ast = parse(source, path.dirname(file));
     const html = compile(ast);
     const rel = path.relative(pagesDir, file).replace(/\.snap$/, '.html');
     const outFile = path.join(outDir, rel);
     fs.mkdirSync(path.dirname(outFile), { recursive: true });
     fs.writeFileSync(outFile, html);
     built.push(rel);
+    pages.push(rel.replace(/\.html$/, '').replace(/index$/, ''));
   }
+
+  // Generate sitemap.xml
+  const sitemapEntries = pages.map(p => `  <url><loc>/${p}</loc></url>`).join('\n');
+  fs.writeFileSync(path.join(outDir, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries}\n</urlset>`);
+
+  // Generate robots.txt
+  fs.writeFileSync(path.join(outDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: /sitemap.xml\n`);
 
   return built;
 }
@@ -145,7 +125,7 @@ function findAllSnapFiles(dir) {
   if (!fs.existsSync(dir)) return results;
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) results.push(...findAllSnapFiles(full));
+    if (entry.isDirectory() && entry.name !== 'dist' && entry.name !== 'node_modules') results.push(...findAllSnapFiles(full));
     else if (entry.name.endsWith('.snap')) results.push(full);
   }
   return results;
@@ -160,8 +140,7 @@ export function serveStatic(dir, port = 3000) {
       res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
       res.end(fs.readFileSync(filePath));
     } else {
-      res.writeHead(404);
-      res.end('Not found');
+      res.writeHead(404); res.end('Not found');
     }
   });
   server.listen(port, () => console.log(`\n  🫰 Serving at http://localhost:${port}\n`));

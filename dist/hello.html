@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello World</title>
   
+  <meta property="og:title" content="Hello World">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -28,34 +30,35 @@
   --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
   --font: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --card-bg: white;
+  --nav-bg: white;
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { font-size: 16px; scroll-behavior: smooth; }
-
-body {
-  font-family: var(--font);
-  color: var(--text);
-  background: var(--light);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
+body { font-family: var(--font); color: var(--text); background: var(--light); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--primary); text-decoration: none; }
 a:hover { text-decoration: underline; }
-
+:root {
+  --primary: #6366f1;
+  --secondary: #8b5cf6;
+  --accent: #06b6d4;
+  --dark: #0f172a;
+  --light: #f8fafc;
+  --bg-light: #f1f5f9;
+  --bg-muted: #e2e8f0;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --text-light: #64748b;
+}
 .snap-page { max-width: 1200px; margin: 0 auto; padding: 2rem; }
 .snap-layout { min-height: 100vh; display: flex; flex-direction: column; }
-
-.snap-nav { background: white; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+.snap-nav { background: var(--nav-bg, white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
 .snap-nav-inner { max-width: 1200px; margin: 0 auto; padding: 0.75rem 2rem; display: flex; align-items: center; justify-content: space-between; }
 .snap-nav-brand { font-weight: 700; font-size: 1.25rem; color: var(--dark); text-decoration: none; }
 .snap-nav-links { display: flex; gap: 1.5rem; align-items: center; }
 .snap-nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; transition: color 0.2s; }
 .snap-nav-links a:hover { color: var(--primary); }
-
 .snap-hero { padding: 6rem 2rem; text-align: center; background: var(--light); }
 .snap-hero-gradient { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; }
 .snap-hero-gradient .snap-text { color: rgba(255,255,255,0.9); }
@@ -63,100 +66,158 @@ a:hover { text-decoration: underline; }
 .snap-hero-gradient .snap-btn:hover { background: rgba(255,255,255,0.9); }
 .snap-hero-inner { max-width: 800px; margin: 0 auto; }
 .snap-hero-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-
 .snap-section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
 .snap-section-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem; }
-
 .snap-heading { font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
-h1.snap-heading { font-size: 2.5rem; }
-h2.snap-heading { font-size: 2rem; }
-h3.snap-heading { font-size: 1.5rem; }
-
+h1.snap-heading { font-size: 2.5rem; } h2.snap-heading { font-size: 2rem; } h3.snap-heading { font-size: 1.5rem; }
 .snap-text { color: var(--text-light); line-height: 1.7; margin-bottom: 1rem; max-width: 65ch; }
-
-.snap-card { background: white; border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); transition: box-shadow 0.2s, transform 0.2s; }
+.snap-card { background: var(--card-bg, white); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); transition: box-shadow 0.2s, transform 0.2s; }
 .snap-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
 .snap-card-title { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; }
-
 .snap-grid { display: grid; grid-template-columns: repeat(var(--cols, 3), 1fr); gap: var(--gap, 1.5rem); }
 @media (max-width: 768px) { .snap-grid { grid-template-columns: 1fr; } }
 @media (min-width: 769px) and (max-width: 1024px) { .snap-grid { grid-template-columns: repeat(min(var(--cols, 3), 2), 1fr); } }
-
 .snap-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
 .snap-column { flex: 1; min-width: 0; }
-
 .snap-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.625rem 1.5rem; background: var(--primary); color: white; border: none; border-radius: var(--radius); font-weight: 600; font-size: 0.9375rem; cursor: pointer; transition: all 0.2s; text-decoration: none; font-family: var(--font); }
 .snap-btn:hover { opacity: 0.9; transform: translateY(-1px); text-decoration: none; }
-.snap-btn-secondary { background: var(--secondary); }
-.snap-btn-accent { background: var(--accent); }
-.snap-btn-danger { background: var(--danger); }
-
+.snap-btn-secondary { background: var(--secondary); } .snap-btn-accent { background: var(--accent); } .snap-btn-danger { background: var(--danger); }
 .snap-form { display: flex; flex-direction: column; gap: 1rem; max-width: 500px; }
 .snap-field { display: flex; flex-direction: column; gap: 0.375rem; }
 .snap-label { font-weight: 600; font-size: 0.875rem; color: var(--text); }
 .snap-input { padding: 0.625rem 0.875rem; border: 1px solid var(--border); border-radius: var(--radius); font-size: 1rem; font-family: var(--font); transition: border-color 0.2s, box-shadow 0.2s; }
 .snap-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.1); }
-
 .snap-table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
 .snap-table { width: 100%; border-collapse: collapse; }
 .snap-table th { background: var(--bg-light); font-weight: 600; text-align: left; padding: 0.75rem 1rem; font-size: 0.875rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.05em; }
 .snap-table td { padding: 0.75rem 1rem; border-top: 1px solid var(--border); }
 .snap-table tr:hover td { background: var(--bg-light); }
-
 .snap-stat { text-align: center; padding: 1rem; }
 .snap-stat-value { font-size: 2rem; font-weight: 800; color: var(--dark); letter-spacing: -0.02em; }
 .snap-stat-label { font-size: 0.875rem; color: var(--text-light); margin-top: 0.25rem; }
 .snap-stat-trend { font-size: 0.875rem; font-weight: 600; margin-top: 0.25rem; }
-.snap-stat-trend.up { color: var(--success); }
-.snap-stat-trend.down { color: var(--danger); }
-
+.snap-stat-trend.up { color: var(--success); } .snap-stat-trend.down { color: var(--danger); }
 .snap-badge { display: inline-flex; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; background: var(--bg-light); color: var(--text-light); }
 .snap-divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
-.snap-spacer { }
-
 .snap-footer { padding: 2rem; text-align: center; color: var(--text-light); font-size: 0.875rem; border-top: 1px solid var(--border); margin-top: auto; }
-
 .snap-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-.snap-item { padding: 0.5rem 0; }
-.snap-item::before { content: '→ '; color: var(--primary); font-weight: 600; }
-
+.snap-item { padding: 0.5rem 0; } .snap-item::before { content: '→ '; color: var(--primary); font-weight: 600; }
 .snap-quote { border-left: 4px solid var(--primary); padding: 1rem 1.5rem; background: var(--bg-light); border-radius: 0 var(--radius) var(--radius) 0; font-style: italic; color: var(--text-light); }
-
 .snap-code { background: var(--dark); color: #e2e8f0; padding: 1.5rem; border-radius: var(--radius); overflow-x: auto; font-family: var(--font-mono); font-size: 0.875rem; line-height: 1.6; }
-
-.snap-chart { padding: 1rem 0; }
-.snap-chart h3 { margin-bottom: 1rem; }
-.snap-chart canvas { width: 100%; }
-
+.snap-chart { padding: 1rem 0; } .snap-chart h3 { margin-bottom: 1rem; } .snap-chart canvas { width: 100%; }
 .snap-image { border-radius: var(--radius); }
 .snap-video { width: 100%; border-radius: var(--radius); }
 .snap-embed { width: 100%; min-height: 400px; border-radius: var(--radius); }
-
 .snap-link { color: var(--primary); font-weight: 500; }
+.snap-component { }
+
+@keyframes snapFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes snapSlideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes snapSlideLeft { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes snapSlideRight { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes snapBounce { 0%,20%,50%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-20px); } 60% { transform: translateY(-10px); } }
+@keyframes snapPulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+@keyframes snapShake { 0%,100% { transform: translateX(0); } 10%,30%,50%,70%,90% { transform: translateX(-5px); } 20%,40%,60%,80% { transform: translateX(5px); } }
+.snap-fade-in { animation: snapFadeIn 0.6s ease-out both; }
+.snap-slide-up { animation: snapSlideUp 0.6s ease-out both; }
+.snap-slide-left { animation: snapSlideLeft 0.6s ease-out both; }
+.snap-slide-right { animation: snapSlideRight 0.6s ease-out both; }
+.snap-bounce { animation: snapBounce 1s ease both; }
+.snap-pulse { animation: snapPulse 2s ease-in-out infinite; }
+.snap-shake { animation: snapShake 0.6s ease both; }
+.snap-hover-grow { transition: transform 0.2s; }
+.snap-hover-grow:hover { transform: scale(1.05); }
+.snap-hover-glow { transition: box-shadow 0.2s; }
+.snap-hover-glow:hover { box-shadow: 0 0 20px rgba(99,102,241,0.4); }
+.snap-hover-lift { transition: transform 0.2s, box-shadow 0.2s; }
+.snap-hover-lift:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+.snap-tabs-nav { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 1rem; }
+.snap-tabs-nav button { padding: 0.75rem 1.5rem; border: none; background: none; cursor: pointer; font-family: var(--font); font-weight: 500; color: var(--text-light); border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+.snap-tabs-nav button.active { color: var(--primary); border-bottom-color: var(--primary); }
+.snap-tab-panel { display: none; }
+.snap-tab-panel.active { display: block; }
+.snap-accordion { border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 0.5rem; overflow: hidden; }
+.snap-accordion-header { padding: 1rem 1.25rem; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; background: var(--bg-light); user-select: none; }
+.snap-accordion-header::after { content: '+'; font-size: 1.25rem; transition: transform 0.2s; }
+.snap-accordion.open .snap-accordion-header::after { content: '−'; }
+.snap-accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.snap-accordion.open .snap-accordion-body { max-height: 1000px; }
+.snap-accordion-body-inner { padding: 1rem 1.25rem; }
+.snap-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; }
+.snap-modal-overlay.open { display: flex; }
+.snap-modal-content { background: var(--card-bg, white); border-radius: var(--radius); padding: 2rem; max-width: 500px; width: 90%; position: relative; box-shadow: var(--shadow-lg); }
+.snap-modal-close { position: absolute; top: 0.75rem; right: 1rem; border: none; background: none; font-size: 1.5rem; cursor: pointer; color: var(--text-light); }
+.snap-dropdown { position: relative; display: inline-block; }
+.snap-dropdown-btn { padding: 0.625rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card-bg, white); cursor: pointer; font-family: var(--font); display: flex; align-items: center; gap: 0.5rem; }
+.snap-dropdown-btn::after { content: '▾'; }
+.snap-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 180px; background: var(--card-bg, white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); z-index: 100; margin-top: 0.25rem; }
+.snap-dropdown.open .snap-dropdown-menu { display: block; }
+.snap-dropdown-menu a, .snap-dropdown-menu div { display: block; padding: 0.5rem 1rem; color: var(--text); text-decoration: none; cursor: pointer; }
+.snap-dropdown-menu a:hover, .snap-dropdown-menu div:hover { background: var(--bg-light); }
+.snap-toggle { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; user-select: none; }
+.snap-toggle-track { width: 44px; height: 24px; background: var(--bg-muted); border-radius: 12px; position: relative; transition: background 0.2s; }
+.snap-toggle.on .snap-toggle-track { background: var(--primary); }
+.snap-toggle-thumb { width: 20px; height: 20px; background: white; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: transform 0.2s; box-shadow: var(--shadow); }
+.snap-toggle.on .snap-toggle-thumb { transform: translateX(20px); }
+.snap-counter { display: inline-flex; align-items: center; gap: 0.75rem; }
+.snap-counter button { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-light); cursor: pointer; font-size: 1.125rem; display: flex; align-items: center; justify-content: center; }
+.snap-counter-value { font-size: 1.25rem; font-weight: 700; min-width: 2rem; text-align: center; }
+.snap-toast { position: fixed; bottom: 2rem; right: 2rem; padding: 1rem 1.5rem; background: var(--dark); color: var(--light); border-radius: var(--radius); box-shadow: var(--shadow-lg); z-index: 2000; transform: translateY(100px); opacity: 0; transition: all 0.3s ease; }
+.snap-toast.show { transform: translateY(0); opacity: 1; }
+.snap-carousel { position: relative; overflow: hidden; border-radius: var(--radius); }
+.snap-carousel-track { display: flex; transition: transform 0.4s ease; }
+.snap-carousel-track > * { min-width: 100%; }
+.snap-carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.25rem; z-index: 10; box-shadow: var(--shadow); }
+.snap-carousel-prev { left: 0.75rem; }
+.snap-carousel-next { right: 0.75rem; }
+.snap-pricing { background: var(--card-bg, white); border-radius: var(--radius); padding: 2rem; text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; }
+.snap-pricing:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.snap-pricing-price { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin: 1rem 0; }
+.snap-pricing-title { font-size: 1.25rem; font-weight: 700; }
+.snap-pricing-features { list-style: none; padding: 0; margin: 1.5rem 0; text-align: left; }
+.snap-pricing-features li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.snap-pricing-features li::before { content: '✓ '; color: var(--success); font-weight: 700; }
+.snap-testimonial { background: var(--card-bg, white); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); }
+.snap-testimonial-text { font-style: italic; color: var(--text-light); margin-bottom: 1rem; font-size: 1.05rem; line-height: 1.7; }
+.snap-testimonial-text::before { content: '"'; font-size: 2rem; color: var(--primary); line-height: 0; vertical-align: -0.5rem; margin-right: 0.25rem; }
+.snap-testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+.snap-testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--bg-muted); object-fit: cover; }
+.snap-testimonial-name { font-weight: 600; }
+.snap-testimonial-role { font-size: 0.85rem; color: var(--text-light); }
+.snap-timeline { position: relative; padding-left: 2rem; }
+.snap-timeline::before { content: ''; position: absolute; left: 0.5rem; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.snap-timeline-item { position: relative; padding-bottom: 2rem; }
+.snap-timeline-item::before { content: ''; position: absolute; left: -1.65rem; top: 0.25rem; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); border: 2px solid var(--light); }
+.snap-progress { width: 100%; margin: 0.5rem 0; }
+.snap-progress-bar { height: 8px; background: var(--bg-muted); border-radius: 4px; overflow: hidden; }
+.snap-progress-fill { height: 100%; background: var(--primary); border-radius: 4px; transition: width 0.6s ease; }
+.snap-progress-label { display: flex; justify-content: space-between; margin-bottom: 0.25rem; font-size: 0.875rem; }
+.snap-alert { padding: 1rem 1.25rem; border-radius: var(--radius); margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 0.75rem; }
+.snap-alert-info { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+.snap-alert-success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+.snap-alert-warning { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
+.snap-alert-danger { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+.snap-countdown { display: flex; gap: 1rem; justify-content: center; }
+.snap-countdown-unit { text-align: center; }
+.snap-countdown-value { font-size: 2.5rem; font-weight: 800; color: var(--primary); background: var(--bg-light); border-radius: var(--radius); padding: 0.5rem 1rem; min-width: 4rem; display: block; }
+.snap-countdown-label { font-size: 0.75rem; text-transform: uppercase; color: var(--text-light); margin-top: 0.25rem; letter-spacing: 0.05em; }
 </style>
 </head>
 <body>
-<div class="snap-layout"><section class="snap-hero snap-hero-gradient" style="background: linear-gradient(135deg, var(--primary), var(--accent))">
-          <div class="snap-hero-inner"><h1 class="snap-hero-title">Hello, World! 🌍</h1><p class="snap-text">This is a website built with Snap — the LLM-friendly web framework.</p>
+<div class="snap-layout"><section class="snap-hero snap-hero-gradient" style="background: linear-gradient(135deg, var(--primary), var(--accent))"><div class="snap-hero-inner"><h1 class="snap-hero-title">Hello, World! 🌍</h1><p class="snap-text">This is a website built with Snap — the LLM-friendly web framework.</p>
 <p class="snap-text" style="color: var(--muted)">Zero config. Zero CSS. Zero pain.</p>
-<a href="#about" class="snap-btn ">Learn More</a></div>
-        </section>
+<a href="#about" class="snap-btn ">Learn More</a></div></section>
 <section class="snap-section"><h2 class="snap-section-title">About</h2><h2 class="snap-heading">Why Snap?</h2>
-<div class="snap-grid" style="--cols:3;--gap:1.5rem;"><div class="snap-card b1">
-          <h3 class="snap-card-title">⚡ Fast</h3>
-          <p class="snap-text">Build a full page in ~30 tokens. That's 10x fewer than Next.js.</p>
-        </div>
-<div class="snap-card b2">
-          <h3 class="snap-card-title">🧠 LLM-Native</h3>
-          <p class="snap-text">Designed for AI to read and write. No imports, no JSX, no config files.</p>
-        </div>
-<div class="snap-card b3">
-          <h3 class="snap-card-title">🎨 Beautiful Defaults</h3>
-          <p class="snap-text">Looks professional out of the box. No CSS knowledge needed.</p>
-        </div></div></section>
+<div class="snap-grid" style="--cols:3;--gap:1.5rem;"><div class="snap-card"><h3 class="snap-card-title">⚡ Fast</h3><p class="snap-text">Build a full page in ~30 tokens. That's 10x fewer than Next.js.</p></div>
+<div class="snap-card"><h3 class="snap-card-title">🧠 LLM-Native</h3><p class="snap-text">Designed for AI to read and write. No imports, no JSX, no config files.</p></div>
+<div class="snap-card"><h3 class="snap-card-title">🎨 Beautiful Defaults</h3><p class="snap-text">Looks professional out of the box. No CSS knowledge needed.</p></div></div></section>
 <section class="snap-section"><h2 class="snap-section-title">Get Started</h2><p class="snap-text">Install Snap and create your first page:</p>
 <pre class="snap-code"><code>npm install -g snap-framework\nsnap init my-site\nsnap dev</code></pre>
 <p class="snap-text" style="color: var(--muted)">That's it. You're live.</p></section></div>
-
+<script>
+function snapTabs(id,idx){var el=document.getElementById(id);var btns=el.querySelectorAll('.snap-tabs-nav button');var panels=el.querySelectorAll('.snap-tab-panel');btns.forEach(function(b,i){b.classList.toggle('active',i===idx)});panels.forEach(function(p,i){p.classList.toggle('active',i===idx)});}
+document.addEventListener('click',function(e){document.querySelectorAll('.snap-dropdown.open').forEach(function(d){if(!d.contains(e.target))d.classList.remove('open')})});
+</script>
 </body>
 </html>
